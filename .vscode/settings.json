@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.disable": [
+        "param-type-mismatch",
+        "deprecated",
+        "need-check-nil"
+    ],
+    "Lua.diagnostics.globals": [
+        "InterfaceOptions_AddCategory",
+        "panel"
+    ]
+}
