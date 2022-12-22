@@ -1,7 +1,7 @@
 local addonName = ...
 
 local function colorBorder(unitFrame)
-    unitFrame.healthBar.border:SetVertexColor(1, 0, 0)
+    unitFrame.healthBar.border:SetVertexColor(0, 0, 1)
 end
 
 local function log(message)
