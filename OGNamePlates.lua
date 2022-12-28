@@ -5,10 +5,21 @@ local function colorBorder(unitFrame, r, g, b)
 end
 
 local function mainColor(unitFrame)
+    local unit = unitFrame.unit
+
+    local IsUnitEnemy = UnitIsEnemy(unit, "player")
+    local IsUnitFriend = UnitIsFriend(unit, "player")
+
+    if IsUnitEnemy then
+        colorBorder(unitFrame, 0.5, 0, 0)
+    end
+
+    if IsUnitFriend then
+        colorBorder(unitFrame, 0, 0.5, 0)
+    end
+
     if UnitIsUnit(unitFrame.unit, "target") then
-        colorBorder(unitFrame, 1, 0, 1)
-    else
-        colorBorder(unitFrame, 0, 0, 1)
+        colorBorder(unitFrame, 0.5, 0, 1)
     end
 end
 
