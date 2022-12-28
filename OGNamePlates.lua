@@ -30,12 +30,10 @@ end
 local function onEvent(self, event, unit)
     local namePlate = C_NamePlate.GetNamePlateForUnit(unit)
 
-    if UnitIsPlayer(unit) and IsUnitFrameAccessible(namePlate) and event == 'NAME_PLATE_UNIT_ADDED' or event == 'NAME_PLATE_UNIT_REMOVED' then
+    if UnitIsPlayer(unit) and IsUnitFrameAccessible(namePlate) and (event == 'NAME_PLATE_UNIT_ADDED' or event == 'NAME_PLATE_UNIT_REMOVED') then
         namePlate.UnitFrame.allowBorderColor = true
 
         mainColor(namePlate.UnitFrame)
-    else
-        namePlate.UnitFrame.allowBorderColor = nil
     end
 end
 
