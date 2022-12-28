@@ -19,14 +19,18 @@ local function mainColor(unitFrame)
     end
 
     if UnitIsUnit(unitFrame.unit, "target") then
-        colorBorder(unitFrame, 0.5, 0, 1)
+        colorBorder(unitFrame, 0, 0, 1)
     end
+end
+
+local function IsUnitFrameAccessible(namePlate)
+    return rawget(namePlate, "UnitFrame") ~= nil
 end
 
 local function onEvent(self, event, unit)
     local namePlate = C_NamePlate.GetNamePlateForUnit(unit)
 
-    if namePlate.UnitFrame and event == 'NAME_PLATE_UNIT_ADDED' or event == 'NAME_PLATE_UNIT_REMOVED' then
+    if UnitIsPlayer(unit) and IsUnitFrameAccessible(namePlate) and event == 'NAME_PLATE_UNIT_ADDED' or event == 'NAME_PLATE_UNIT_REMOVED' then
         namePlate.UnitFrame.allowBorderColor = true
 
         mainColor(namePlate.UnitFrame)
