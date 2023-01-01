@@ -11,11 +11,11 @@ local function mainColor(unitFrame)
     local IsUnitFriend = UnitIsFriend(unit, "player")
 
     if IsUnitEnemy then
-        colorBorder(unitFrame, 0.5, 0, 0)
+        colorBorder(unitFrame, 1, 0, 0)
     end
 
     if IsUnitFriend then
-        colorBorder(unitFrame, 0, 0.5, 0)
+        colorBorder(unitFrame, 0, 1, 0)
     end
 
     if UnitIsUnit(unitFrame.unit, "target") then
